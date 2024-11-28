@@ -19,11 +19,15 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.get('http://localhost:5000/users', {
-        params: { username, password },
+      const response = await axios.post('http://localhost:3001/login', { // Correct endpoint
+        username,
+        password,
       });
-      if (response.data.length > 0) {
-        setUser(response.data[0]);
+
+      if (response.data.token) {
+        // Save JWT token to localStorage
+        localStorage.setItem('token', response.data.token);
+
         return true;
       } else {
         return false;
@@ -36,12 +40,16 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/users', {
+      const response = await axios.post('http://localhost:3001/register', { // Correct endpoint
         username,
         password,
       });
-      setUser(response.data);
-      return true;
+
+      if (response.data.message === 'User created successfully') {
+        return true;
+      } else {
+        return false;
+      }
     } catch (error) {
       console.error('Registration failed:', error);
       return false;
@@ -50,11 +58,12 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
     setUser(null);
   };
 
   const isAuthenticated = () => {
-    return user !== null;
+    return localStorage.getItem('token') !== null;
   };
 
   return (

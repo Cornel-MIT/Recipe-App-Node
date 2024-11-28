@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './Home.css';
-import Profile from './Profile';
-import { AuthContext } from '../context/AuthProvider';
+import Profile from './Profile.js';
+import { AuthContext } from '../context/AuthProvider.js';
 
 const categories = ["Dessert", "Main Course", "Appetizers", "Breakfast-Brunch", "Cakes", "Lunch, Dinner"];
 

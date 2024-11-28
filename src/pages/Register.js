@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { AuthContext } from '../context/AuthProvider';
+import { AuthContext } from '../context/AuthProvider.js';
 import { useHistory } from 'react-router-dom';
 import '../App.css';
 
@@ -11,22 +11,24 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    
-    const response = await fetch('http://localhost:5000/users?username=' + encodeURIComponent(username));
-    const existingUsers = await response.json();
-    
-    if (existingUsers.length > 0) {
-      alert('Username already exists. Please choose a different username.');
-      return;
-    }
-
-    const isSuccess = await register(username, password);
-    if (isSuccess) {
-      history.push('/home');
+  
+    // Check if the username already exists
+    const response = await fetch('http://localhost:3001/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    });
+  
+    const data = await response.json();
+  
+    if (response.ok) {
+      alert('Registration successful');
+      history.push('/login');
     } else {
-      alert('Registration failed. Please try again.');
+      alert(data.message || 'Registration failed. Please try again.');
     }
   };
+  
 
   return (
     <div className="auth-container">

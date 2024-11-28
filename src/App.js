@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { AuthProvider, AuthContext } from './context/AuthProvider';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Home from './pages/Home';
+import { AuthProvider, AuthContext } from './context/AuthProvider.js';
+import Login from './pages/Login.js';
+import Register from './pages/Register.js';
+import Home from './pages/Home.js';
 import './App.css';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -15,7 +15,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         user ? (
           <Component {...props} />
         ) : (
-          <Redirect to={{ pathname: "/login", state: { from: props.location } }} />
+          <Redirect to="/login" />
         )
       }
     />
