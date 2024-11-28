@@ -1,7 +1,7 @@
 # Online Recipe Application
 
 ## Objective
-Build an application using React.js and JSON server that allows users to store, manage, and refer to their favorite dishes as recipes.
+Build an application using **React.js**, **NodeJS** and **MongoDB** that allows users to store, manage, and refer to their favorite dishes as recipes.
 
 ## Features
 - **User Authentication**: Users can register and log in.
@@ -42,8 +42,8 @@ Displays the list of recipes with options to add, delete, or edit.
 ![Create Recipe](src/images/Create-Recipe.png)
 
 ## Technologies Used
-- **Frontend**: React.js
-- **Backend**: JSON Server
+- **Frontend**: React.JS
+- **Backend**: Express.JS and MongoDB
 - **HTTP Client**: Axios (for making API requests)
 - **State Management**: React Context
 - **Styling**: CSS or a UI framework 
@@ -51,19 +51,19 @@ Displays the list of recipes with options to add, delete, or edit.
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Cornel-MIT/Recipe-App.git
+   git clone https://github.com/Cornel-MIT/Recipe-App-Node.git
 
 2. Navigate to the project directory:
    ```bash
-   cd Recipe-App
+   cd Recipe-App-Node
 
 3. Install dependencies:
    ```bash
    npm install
 
-4. Start the JSON server:
+4. Start the Node server:
    ```bash
-   json-server --watch db.json --port 5000
+   npx nodemon server.js
          
 4. Start the React application:
    ```bash
@@ -71,7 +71,7 @@ Displays the list of recipes with options to add, delete, or edit.
 
 4. Domain:
    ```bash
-   https://recipe-app-seven-ruddy.vercel.app/  
+   Currently TBC
 
 
 ## Images
@@ -80,12 +80,20 @@ Displays the list of recipes with options to add, delete, or edit.
 
 ## Future Enhancements
 - **User Profiles**: Allow users to create profiles to save their favorite recipes and view their recipe history.
+
 - **Recipe Rating System**: Implement a rating system for users to rate recipes and provide feedback.
+
 - **Advanced Search Filters**: Add filters for categories, preparation time, dietary restrictions, etc.
+
 - **Image Upload**: Allow users to upload their own images for recipes instead of using URLs.
+
 - **Meal Planning Feature**: Introduce functionality for users to plan meals for the week and generate shopping lists.
+
 - **Recipe Sharing**: Enable users to share recipes with friends via social media or direct links.
+
 - **Improved UI/UX**: Enhance the user interface with animations and better layout design for improved user experience.
+
 - **Dark Mode**: Implement a dark mode toggle for user preference.
+
 - **Notifications**: Introduce notifications for new recipes, comments, or updates.
 
