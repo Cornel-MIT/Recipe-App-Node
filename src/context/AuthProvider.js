@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post('http://localhost:3001/login', { // Correct endpoint
+      const response = await axios.post('http://localhost:3001/login', { 
         username,
         password,
       });
@@ -40,12 +40,14 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, password) => {
     try {
-      const response = await axios.post('http://localhost:3001/register', { // Correct endpoint
+      const response = await axios.post('http://localhost:3001/register', {
         username,
         password,
       });
-
+  
       if (response.data.message === 'User created successfully') {
+        const userData = { username }; 
+        setUser(userData);
         return true;
       } else {
         return false;
@@ -55,6 +57,7 @@ export const AuthProvider = ({ children }) => {
       return false;
     }
   };
+  
 
   const logout = () => {
     localStorage.removeItem('user');

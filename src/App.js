@@ -15,7 +15,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         user ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/home" />
         )
       }
     />

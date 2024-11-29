@@ -23,7 +23,7 @@ const Register = () => {
   
     if (response.ok) {
       alert('Registration successful');
-      history.push('/login');
+      history.push('/home');
     } else {
       alert(data.message || 'Registration failed. Please try again.');
     }
